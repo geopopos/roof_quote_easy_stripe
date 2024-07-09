@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Failed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function redirectToCheckout() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const checkoutUrl = urlParams.get('checkout_session_url');
+            if (checkoutUrl) {
+                window.location.href = checkoutUrl;
+            } else {
+                alert('Checkout URL not found.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="error-card">
+            <h1>Connection Failed</h1>
+            <p>We were unable to connect your credit card to your account.</p>
+            <p>Please try again or contact support for assistance.</p>
+            <button class="button" onclick="redirectToCheckout()">Try Again</button>
+        </div>
+    </div>
+</body>
+</html>
